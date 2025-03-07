@@ -1,7 +1,11 @@
 import { register } from "@shopify/web-pixels-extension";
-import { getQueryParam } from "./utils";
+import { getQueryParam, track } from "./utils";
+import packageV from "../../../package.json";
 
 register(async ({ analytics, browser, settings }) => {
+  const { accountId: apiKey = "" } = settings;
+  // @ts-ignore
+  self.browser = browser;
   // Step 2. Subscribe to customer events with analytics.subscribe(), and add tracking
   analytics.subscribe("all_standard_events", (event) => {
     console.log("Event data ", event?.data);
@@ -10,8 +14,9 @@ register(async ({ analytics, browser, settings }) => {
   analytics.subscribe("page_viewed", (event) => {
     console.log("page_viewed", event);
     console.log("--------MAI's Pixel Install Successful!---------");
-    console.log("mixpanel", mixpanel);
-    mixpanel.track("page_view", {
+    console.log(`--------MAI's Pixel version: ${packageV.version}!---------`);
+    track("page_view", {
+      apiKey,
       timestamp: event.timestamp,
       id: event.id,
       client_id: event.clientId,
@@ -42,7 +47,8 @@ register(async ({ analytics, browser, settings }) => {
 
   analytics.subscribe("product_added_to_cart", (event) => {
     console.log("product_added_to_cart", event);
-    mixpanel.track("product_added_to_cart", {
+    track("product_added_to_cart", {
+      apiKey,
       timestamp: event.timestamp,
       id: event.id,
       client_id: event.clientId,
@@ -77,7 +83,8 @@ register(async ({ analytics, browser, settings }) => {
 
   analytics.subscribe("checkout_completed", (event) => {
     console.log("checkout_completed", event);
-    mixpanel.track("checkout_completed", {
+    track("checkout_completed", {
+      apiKey,
       timestamp: event.timestamp,
       id: event.id,
       token: event.data?.checkout?.token,

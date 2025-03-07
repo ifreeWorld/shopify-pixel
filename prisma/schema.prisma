@@ -18,6 +18,7 @@ model Session {
   shop          String
   state         String
   isOnline      Boolean   @default(false)
+  apiKey        String?
   scope         String?
   expires       DateTime?
   accessToken   String

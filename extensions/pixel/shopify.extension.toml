@@ -7,7 +7,7 @@ runtime_context = "strict"
 [settings]
 type = "object"
 
-[settings.fields.accountID]
+[settings.fields.accountId]
 name = "Account ID"
 description = "Account ID"
 type = "single_line_text_field"

@@ -4,6 +4,7 @@ CREATE TABLE "Session" (
     "shop" TEXT NOT NULL,
     "state" TEXT NOT NULL,
     "isOnline" BOOLEAN NOT NULL DEFAULT false,
+    "apiKey" TEXT,
     "scope" TEXT,
     "expires" DATETIME,
     "accessToken" TEXT NOT NULL,

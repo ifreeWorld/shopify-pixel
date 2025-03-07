@@ -88,7 +88,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       variables: {
         webPixel: {
           settings: {
-            accountID: "123",
+            accountId: "123",
           },
         },
       },

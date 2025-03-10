@@ -6,6 +6,7 @@ export function getQueryParam(search: any, name: string) {
 // Define an interface for properties that requires a client_id
 interface TrackProperties {
   client_id: string;
+  api_key: string;
   [key: string]: any; // Allow additional properties
 }
 
@@ -13,19 +14,23 @@ interface TrackProperties {
 export async function track(eventName: string, properties: TrackProperties) {
   const measurementId = `G-L6RJPETWN1`;
   const apiSecret = `tYjaJa_MTlCwgPC-lwhg_g`;
-  // TODO: 后续最终版增加一个mai_client_id的参数，用来区分数据上报到mai的具体的哪个账号上去
+  const { api_key } = properties;
   fetch(
     `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`,
     {
       method: "POST",
       body: JSON.stringify({
-        // c端用户id
+        // c端用户id, The client-side ID of the customer, provided by Shopify
         client_id: properties.client_id,
+        // c端用户id
+        user_id: properties.client_id,
         events: [
           {
             name: eventName,
             params: {
               ...properties,
+              // MAI的客户ID
+              mai_client_id: api_key,
               // sessionId 我们的代码自己生成的
               session_id: await getOrCreateSessionId(),
               // TODO: 设置engagement_time_msec
@@ -34,7 +39,7 @@ export async function track(eventName: string, properties: TrackProperties) {
           },
         ],
       }),
-    },
+    }
   );
 }
 

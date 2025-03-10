@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "remix vite:build",
-    "dev": "shopify app dev --tunnel-url=https://e5db-221-232-173-26.ngrok-free.app:3001",
+    "dev": "shopify app dev --tunnel-url=https://d402-221-232-172-121.ngrok-free.app:3001",
     "config:link": "shopify app config link",
     "generate": "shopify app generate",
     "deploy": "shopify app deploy",
@@ -16,6 +16,7 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "shopify": "shopify",
     "prisma": "prisma",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,md,json}\"",
     "graphql-codegen": "graphql-codegen",
     "vite": "vite"
   },

@@ -13,34 +13,35 @@ register(async ({ analytics, browser, settings }) => {
 
   analytics.subscribe("page_viewed", (event) => {
     console.log("page_viewed", event);
-    console.log("--------MAI's Pixel Install Successful!---------");
-    console.log(`--------MAI's Pixel version: ${packageV.version}!---------`);
+    console.log("--------M.AI's Pixel Install Successful!---------");
+    console.log(`--------M.AI's Pixel version: ${packageV.version}!---------`);
     track("page_view", {
-      apiKey,
+      api_key: apiKey,
       timestamp: event.timestamp,
       id: event.id,
+      // The client-side ID of the customer, provided by Shopify
       client_id: event.clientId,
       url: event.context.document.location.href,
       page_title: event.context.document.title,
       utmSource: getQueryParam(
         event.context.document.location.search,
-        "utm_source",
+        "utm_source"
       ),
       utmMedium: getQueryParam(
         event.context.document.location.search,
-        "utm_medium",
+        "utm_medium"
       ),
       utmCampaign: getQueryParam(
         event.context.document.location.search,
-        "utm_campaign",
+        "utm_campaign"
       ),
       utmContent: getQueryParam(
         event.context.document.location.search,
-        "utm_content",
+        "utm_content"
       ),
       utmTerm: getQueryParam(
         event.context.document.location.search,
-        "utm_term",
+        "utm_term"
       ),
     });
   });
@@ -48,7 +49,7 @@ register(async ({ analytics, browser, settings }) => {
   analytics.subscribe("product_added_to_cart", (event) => {
     console.log("product_added_to_cart", event);
     track("product_added_to_cart", {
-      apiKey,
+      api_key: apiKey,
       timestamp: event.timestamp,
       id: event.id,
       client_id: event.clientId,
@@ -60,23 +61,23 @@ register(async ({ analytics, browser, settings }) => {
       total_cost: event.data?.cartLine?.cost?.totalAmount?.amount,
       utmSource: getQueryParam(
         event.context.document.location.search,
-        "utm_source",
+        "utm_source"
       ),
       utmMedium: getQueryParam(
         event.context.document.location.search,
-        "utm_medium",
+        "utm_medium"
       ),
       utmCampaign: getQueryParam(
         event.context.document.location.search,
-        "utm_campaign",
+        "utm_campaign"
       ),
       utmContent: getQueryParam(
         event.context.document.location.search,
-        "utm_content",
+        "utm_content"
       ),
       utmTerm: getQueryParam(
         event.context.document.location.search,
-        "utm_term",
+        "utm_term"
       ),
     });
   });
@@ -84,7 +85,7 @@ register(async ({ analytics, browser, settings }) => {
   analytics.subscribe("checkout_completed", (event) => {
     console.log("checkout_completed", event);
     track("checkout_completed", {
-      apiKey,
+      api_key: apiKey,
       timestamp: event.timestamp,
       id: event.id,
       token: event.data?.checkout?.token,
@@ -110,23 +111,23 @@ register(async ({ analytics, browser, settings }) => {
       tax: event.data?.checkout?.totalTax?.amount,
       utmSource: getQueryParam(
         event.context.document.location.search,
-        "utm_source",
+        "utm_source"
       ),
       utmMedium: getQueryParam(
         event.context.document.location.search,
-        "utm_medium",
+        "utm_medium"
       ),
       utmCampaign: getQueryParam(
         event.context.document.location.search,
-        "utm_campaign",
+        "utm_campaign"
       ),
       utmContent: getQueryParam(
         event.context.document.location.search,
-        "utm_content",
+        "utm_content"
       ),
       utmTerm: getQueryParam(
         event.context.document.location.search,
-        "utm_term",
+        "utm_term"
       ),
     });
   });

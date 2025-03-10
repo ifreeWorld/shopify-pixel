@@ -16,7 +16,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           }
         }
       }
-    }`,
+    }`
   );
   const scripts = await getResponse.json();
 
@@ -37,7 +37,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         variables: {
           id: node.id,
         },
-      },
+      }
     );
   }
   await admin.graphql(
@@ -66,7 +66,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           cache: true,
         },
       },
-    },
+    }
   );
 
   const pixelResponse = await admin.graphql(
@@ -92,7 +92,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           },
         },
       },
-    },
+    }
   );
   const data = await pixelResponse.json();
 

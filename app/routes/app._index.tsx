@@ -71,7 +71,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           },
         },
       },
-    },
+    }
   );
   const { data } = await pixelResponse.json();
 
@@ -125,15 +125,16 @@ export default function Index() {
                 </Text>
                 <Text variant="bodyMd" as="p">
                   Once you've connected your account, events should
-                  automatically begin flowing to your MAI account.
+                  automatically begin flowing to your M.AI account.
                 </Text>
 
                 <TextField
-                  label="MAI API Key"
+                  label="Email"
                   value={accountId}
                   onChange={setAccountId}
                   autoComplete="off"
                   disabled={isConnected}
+                  placeholder="Please enter M.AI's login email"
                 />
 
                 <Button
@@ -147,7 +148,7 @@ export default function Index() {
 
                 {isConnected && (
                   <Banner tone="success">
-                    <p>Your MAI account has been successfully connected.</p>
+                    <p>Your M.AI account has been successfully connected.</p>
                   </Banner>
                 )}
               </BlockStack>

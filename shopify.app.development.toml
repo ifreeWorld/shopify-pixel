@@ -1,14 +1,14 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "7a472982788963bda88cecf0a5f4ddc2"
-application_url = "<SHOPIFY_APP_URL>"
+application_url = "https://177b-240e-36f-d5b-4130-1c7d-d427-6ac-a25.ngrok-free.app"
 embedded = true
 name = "mai-pixel"
 handle = "mai-pixel"
 
 [build]
 include_config_on_deploy = true
-automatically_update_urls_on_dev = false
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-01"
@@ -39,9 +39,9 @@ scopes = "read_customer_events,write_pixels,write_products,read_products,write_s
 
 [auth]
 redirect_urls = [
-  "<SHOPIFY_APP_URL>/auth/callback",
-  "<SHOPIFY_APP_URL>/auth/shopify/callback",
-  "<SHOPIFY_APP_URL>/api/auth/callback"
+  "https://177b-240e-36f-d5b-4130-1c7d-d427-6ac-a25.ngrok-free.app/auth/callback",
+  "https://177b-240e-36f-d5b-4130-1c7d-d427-6ac-a25.ngrok-free.app/auth/shopify/callback",
+  "https://177b-240e-36f-d5b-4130-1c7d-d427-6ac-a25.ngrok-free.app/api/auth/callback"
 ]
 
 [pos]
